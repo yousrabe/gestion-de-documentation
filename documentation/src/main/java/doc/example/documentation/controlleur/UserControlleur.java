@@ -1,0 +1,58 @@
+package doc.example.documentation.controlleur;
+
+import doc.example.documentation.DAO.Iuser;
+import doc.example.documentation.entité.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@CrossOrigin("*")
+@RequestMapping("users")
+public class UserControlleur  {
+    @Autowired
+    private Iuser iuser;
+
+    @GetMapping("/all")
+
+    public List<User> getAllUsers()
+    {
+        return iuser.findAll();}
+
+
+    @PostMapping("/add")
+    public User add(@RequestBody User user)
+    {
+        return iuser.save(user)  ;   }
+
+    @PutMapping("/update")
+    public User update(@RequestBody User user)
+    {
+        return iuser.saveAndFlush(user);
+    }
+    @DeleteMapping("/delete")
+    public String supprimer(Long idUser)
+    {
+        try{
+            iuser.deleteById(idUser);
+            return "yes";
+        }
+        catch(Exception e)
+        {
+            return "no";
+        }
+    }
+    @RequestMapping(value = "/" +
+            "find", method = RequestMethod.GET)
+    @ResponseBody
+    public User findByUsername(@RequestParam("email") String email) {
+        return iuser.findByEmail(email);
+    }
+
+ /* @RequestMapping("/getemail")
+  public User findByEmail(String email) {
+      return iuser.findByEmail(email);
+  }*/
+
+}
