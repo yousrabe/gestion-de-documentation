@@ -1,0 +1,35 @@
+<section id="main-content">
+  <section class="wrapper">
+    <h3><i class="fa fa-angle-right" style="color: red"></i> changer mot de passe</h3>
+    <div class="row"></div>
+    <div class="row"></div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+
+      <label style="color: #00c5de">mot de passe actuel</label>
+      <div class="form-group pass_show">
+        <input type="password" value="you" class="form-control" name="password1" placeholder="Current Password" [(ngModel)]="password1">
+      </div>
+      <label style="color: #00c5de">nouveau mot de passe</label>
+      <div class="form-group pass_show">
+        <input type="password"  class="form-control" name="nouveau" placeholder="New Password" [(ngModel)]="nouveau">
+      </div>
+      <label style="color: #00c5de">confirmer mot de passe</label>
+      <div class="form-group pass_show">
+        <input type="password" value="faisal.khan@123" name="resaisir" class="form-control" placeholder="Confirm Password" [(ngModel)]="resaisir">
+      </div>
+
+    </div>
+
+  </div>
+    <div class="row">
+      <div class="input-group mb-5"></div>
+      <div class="col-md-2"></div>
+    <button type="button" class="btn btn-info" (click)="modification()">enregister</button>
+    <div class="col-md-1"></div>
+    <button type="button" class="btn btn-danger">annuler</button>
+  </div>
+
+  </section>
+  </section>
